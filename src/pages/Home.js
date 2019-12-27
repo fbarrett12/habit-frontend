@@ -1,11 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import Orb from '../components/Orb'
+import OrbContainer from '../containers/OrbContainer'
 
 const Home = () => {
+    
     return(
-        <div>
-            <Orb />
+        <div >
+            <OrbContainer />
         </div>
     )
 }
