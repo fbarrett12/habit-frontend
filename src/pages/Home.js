@@ -4,11 +4,20 @@ import OrbContainer from '../containers/OrbContainer'
 import SignUpForm from '../forms/SignUpForm'
 
 const Home = () => {
-    
-    return(
+    const currentUser = useSelector(state => state.user)
+
+    const welcome = currentUser.token ? (
+        <>
+        <h1> Welcome Back</h1>
+        <div>
+            <OrbContainer />
+        </div>
+        </>
+    ) :
+    (
         <>
             <div id="welcome">
-
+                <h1>Welcome to Habit</h1>
             </div>
 
             <div>
@@ -19,6 +28,11 @@ const Home = () => {
                 <SignUpForm />
             </div>
         </>
+    )
+
+    
+    return(
+        welcome
     )
 }
 

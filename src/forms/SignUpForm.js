@@ -11,6 +11,7 @@ const SignUpForm = props => {
        username: '',
        name: '',
        password: '',
+       toggle: "signup"
    })
 
    // dynamically sets sign up routes 
@@ -30,14 +31,30 @@ const SignUpForm = props => {
    }
 
    // destructure keys from local state to use in the form 
-   const { username, name, password} = signupForm
-
+   const { username, name, password, toggle} = signupForm
+   console.log(signupForm.toggle)
    return(
     <form className="pure-form pure-form-stacked" onSubmit={handleSubmit}>
         <fieldset>
             <legend>Sign Up</legend>
 
-            <label for="username">Email</label>
+            <input 
+            type="radio"
+            name="toggle"
+            value="signup"
+            checked={toggle === "signup" ? "checked" : "" }
+            onChange={handleChange}
+          /> New Member <br></br>
+
+          <input 
+            type="radio"
+            name="toggle"
+            value="login"
+            checked={toggle === "login" ? "checked" : "" }
+            onChange={handleChange}
+          /> Returning Member <br></br>
+
+            <label htmlFor="username">Email</label>
             <input 
             id="username" 
             type="username" 
@@ -47,7 +64,7 @@ const SignUpForm = props => {
             />
            
 
-            <label for="name">Name</label>
+            <label htmlFor="name">Name</label>
             <input 
             id="name" 
             type="name" 
@@ -57,7 +74,7 @@ const SignUpForm = props => {
             />
             
 
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input 
             id="password" 
             type="password"
@@ -66,7 +83,13 @@ const SignUpForm = props => {
             onChange={handleChange} 
             />
 
-            <button type="submit" className="pure-button pure-button-primary">Sign in</button>
+            {toggle === "signup" ? (
+                <button type="submit" className="pure-button pure-button-primary">Sign Up</button>
+            )
+            :
+            (
+                <button type="submit" className="pure-button pure-button-primary">Log In</button>
+            )}
         </fieldset>
     </form>
    )
