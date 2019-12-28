@@ -7,12 +7,17 @@ const Home = () => {
     
     return(
         <>
-        <div >
-            <OrbContainer />
-        </div>
-        <div>
-            <SignUpForm />
-        </div>
+            <div id="welcome">
+
+            </div>
+
+            <div>
+                <OrbContainer />
+            </div>
+
+            <div>
+                <SignUpForm />
+            </div>
         </>
     )
 }

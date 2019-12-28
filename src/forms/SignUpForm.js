@@ -22,7 +22,7 @@ const SignUpForm = props => {
        e.preventDefault()
 
         dispatch(userActions.newUserToDB(signupForm, "http://localhost:3000/users"))
-        props.history.push('/')
+        // props.history.push('/')
    }
 
    const handleChange = e => {

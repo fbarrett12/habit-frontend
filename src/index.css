@@ -1,12 +1,10 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
-  color: blanchedalmond;
+  color: white;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -14,6 +12,23 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#welcome {
+  font-family: 'Montserrat', sans-serif;
+  padding: 1em;
+}
+
+.pure-form legend {
+  display: block;
+  width: 100%;
+  padding: 1em 0;
+  margin-bottom: .3em;
+  color: white;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+input {
+  color: black;
 }
