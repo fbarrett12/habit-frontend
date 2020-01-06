@@ -7,6 +7,7 @@ import Pages from './pages'
     return (
         <Switch>
             <Route path="/" component={Pages.Home} />
+            <Route path="main" component={Pages.Main} />
         </Switch>
        
     )

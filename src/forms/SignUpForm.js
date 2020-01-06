@@ -22,7 +22,13 @@ const SignUpForm = props => {
    const handleSubmit = e => {
        e.preventDefault()
 
-        dispatch(userActions.newUserToDB(signupForm, "http://localhost:3000/users"))
+        toggle === "signup" ? (
+            dispatch(userActions.newUserToDB(signupForm, "http://localhost:3000/users"))
+        )
+        :
+        (
+            dispatch(userActions.loginUserToDB(signupForm, "http://localhost:3000/login"))
+        )
         // props.history.push('/')
    }
 
@@ -54,7 +60,7 @@ const SignUpForm = props => {
             onChange={handleChange}
           /> Returning Member <br></br>
 
-            <label htmlFor="username">Email</label>
+            <label htmlFor="username">Username</label>
             <input 
             id="username" 
             type="username" 

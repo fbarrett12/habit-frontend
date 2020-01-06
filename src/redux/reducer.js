@@ -1,5 +1,6 @@
 let defaultState = {
     user: {},
+    routine: {}
 }
 
 export default function reducer(state = defaultState, action){
@@ -15,6 +16,13 @@ export default function reducer(state = defaultState, action){
                 ...state,
                 user: {}
             }
+
+        case 'SET_ROUTINE' :
+            return {
+                ...state,
+                routine: action.payload 
+            }
+
         default:
             return state
     }

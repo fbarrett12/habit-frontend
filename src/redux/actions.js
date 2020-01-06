@@ -13,6 +13,11 @@ const setUserAction = userObj => ({
   payload: userObj
 });
 
+const setRoutineAction = routineObj => ({
+  type: 'SET_ROUTINE',
+  payload: routineObj
+});
+
 const clearUserAction = () => ({
   type: 'CLEAR_USER'
 })
@@ -60,6 +65,7 @@ const newUserToDB = (userObj, url) => dispatch => {
         console.log(data)
         dispatch(setUserAction(data))
         localStorage.setItem('token', data.token)
+        localStorage.setItem('user', data.userInfo)
       })
   }
   
@@ -83,10 +89,26 @@ const newUserToDB = (userObj, url) => dispatch => {
     localStorage.clear();
   }
 
+  const newRoutineToDB = (routineObj, url) => dispatch => {
+    const config = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(routineObj)
+    }
+    fetch(url, config)
+      .then(r => r.json())
+      .then(data => {
+        dispatch(setRoutineAction(data))
+      })
+  }
+
   export default {
     newUserToDB,
     deleteUserFromDB,
     loginUserToDB,
     persistUser,
     logoutUser,
+    newRoutineToDB,
   }
