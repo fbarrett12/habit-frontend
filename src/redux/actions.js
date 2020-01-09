@@ -22,6 +22,15 @@ const clearUserAction = () => ({
   type: 'CLEAR_USER'
 })
 
+const selectRoutineAction = routine => ({
+  type: 'SELECT_ROUTINE',
+  payload: routine
+})
+
+const clearRoutine = () => ({
+  type: 'CLEAR_ROUTINE'
+})
+
 // Fetches
 
 const newUserToDB = (userObj, url) => dispatch => {
@@ -111,4 +120,6 @@ const newUserToDB = (userObj, url) => dispatch => {
     persistUser,
     logoutUser,
     newRoutineToDB,
+    setRoutineAction,
+    clearRoutine
   }

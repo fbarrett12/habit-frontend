@@ -1,22 +1,26 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import userActions from '../redux/actions'
+import '../stylesheets/TaskForm.css'
 
 const NewRoutineForm = props => {
-   // initialize dispatch 
-   const dispatch = useDispatch()
+    // save props as a variable
+    const toggle = props.handleChange
 
-   // set up the local state with useState hook
-   const [newRoutineForm, setNewRoutineForm] = useState({
+    // initialize dispatch 
+    const dispatch = useDispatch()
+
+    // set up the local state with useState hook
+    const [newRoutineForm, setNewRoutineForm] = useState({
        title: '',
        description: ''
-   })
+    })
 
-   // controlled form functions
-   const handleSubmit = e => {
-       e.preventDefault()
+    // controlled form functions
 
-            dispatch(userActions.newRoutineToDB(newRoutineForm, "http://localhost:3000/routines"))
+    const handleClick = (e, toggle) => {
+        e.preventDefault()
+        dispatch(userActions.setRoutineAction(newRoutineForm))
         
         // props.history.push('main')
    }
@@ -28,14 +32,13 @@ const NewRoutineForm = props => {
    // destructure keys from local state to use in the form 
    const { title, description} = newRoutineForm
 
-   return(
-    <form className="pure-form pure-form-stacked" onSubmit={handleSubmit}>
-        <fieldset>
 
+   return(
     
+        <fieldset>
             <label htmlFor="title">Title</label>
             <input 
-            id="username" 
+            id="title" 
             type="text" 
             name="title"
             value={title} 
@@ -52,11 +55,9 @@ const NewRoutineForm = props => {
             onChange={handleChange}
             />
             
-            <button type="submit" className="pure-button pure-button-primary">Create New Routine</button>
+            <button onClick={handleClick} className="pure-button pure-button-primary">Next</button>
         </fieldset>
-    </form>
    )
-
 }
 
 export default NewRoutineForm

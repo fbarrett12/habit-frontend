@@ -4,6 +4,8 @@ import Orb from '../components/Orb'
 import { useSelector } from 'react-redux'
 import { FaPlus } from 'react-icons/fa'
 import NewRoutineForm from '../forms/NewRoutineForm'
+import TaskForm from '../forms/TaskForm'
+import InteractiveFormContainer from './InteractiveFormContainer'
 
 const RoutineContainer = () => {
     const [isVisible, setIsVisible] = useState({
@@ -16,12 +18,21 @@ const RoutineContainer = () => {
     }
 
     const toggleForm = isVisible.isVisible ? (
+        
+        <>
             <div>
-                <NewRoutineForm />
+            <InteractiveFormContainer />
             </div>
-        )
+
+            <button className="pure-button" onClick={handleClick}>
+                <FaPlus />
+            </button>
+        </>
+         )
         :
-        null
+         <button className="pure-button" onClick={handleClick}>
+            <FaPlus />
+        </button>
     
     
     return(
@@ -29,11 +40,6 @@ const RoutineContainer = () => {
         <div>
             {toggleForm}
         </div>
-
-        <button className="pure-button" onClick={handleClick}>
-            <FaPlus />
-        </button>
-
         </>
     ) 
 }
