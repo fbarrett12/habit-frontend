@@ -8,9 +8,10 @@ import TaskForm from '../forms/TaskForm'
 const InteractiveForm = props => {
     
     let active = props.toggle
-    
+    console.log(active)
 
-    const handleChange = e => {
+    const handleClick = e => {
+        console.log(active)
         if(active === "routine"){
             active = "tasks"
         }
@@ -22,58 +23,42 @@ const InteractiveForm = props => {
     const toggle = active => {
         if(active === "tasks"){ 
             return(
-                <div>
-                    <TaskForm onClick={handleChange}/>
-
-                    <button 
-                        className="pure-button pure-button-primary">
-                            Next
-                    </button>
-
-                </div>
-            )  
-            
+                <>
+                    <TaskForm button={handleClick}/>
+                </>
+            )              
         } 
-        else if(active === "review"){
-           return( 
-                <button 
-                    className="pure-button pure-button-primary">
-                        Next
-                </button>
-           )
-        }
-        else if(active === "routine"){
-              
+        else if(active === "routine"){  
             return(
-                <div>
-                    <NewRoutineForm onClick={handleChange}/>
-
-                    <button 
-                        className="pure-button pure-button-primary">
-                            Next
-                    </button>
-                    
-                </div>
+                <>
+                    <NewRoutineForm button={handleClick}/>
+                </>
             )
             
-        } 
+        }
+        else if(active === "review"){
+            return( 
+                 <button 
+                     className="pure-button pure-button-primary">
+                         Next
+                 </button>
+            )
+         } 
         else {
            return( 
            <button 
             className="pure-button pure-button-primary">
-                Next
+                hm
            </button>
            )
         }
     }
 
-        return(
-            <>
+    return(
+        <>
             {toggle(active)}
-
-            
-            </>
-        )
-    }
+        </>
+    )
+}
     
 export default InteractiveForm

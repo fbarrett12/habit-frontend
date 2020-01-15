@@ -4,9 +4,8 @@ import userActions from '../redux/actions'
 import '../stylesheets/TaskForm.css'
 
 const NewRoutineForm = props => {
-    // save props as a variable
-    const toggle = props.handleChange
-
+    console.log(props)
+    const intActiveClick = () => props.button
     // initialize dispatch 
     const dispatch = useDispatch()
 
@@ -18,11 +17,12 @@ const NewRoutineForm = props => {
 
     // controlled form functions
 
-    const handleClick = (e, toggle) => {
+    const handleClick = e => {
         e.preventDefault()
+        intActiveClick()
         dispatch(userActions.setRoutineAction(newRoutineForm))
-        
         // props.history.push('main')
+        console.log("hi")
    }
 
    const handleChange = e => {
@@ -34,7 +34,6 @@ const NewRoutineForm = props => {
 
 
    return(
-    
         <fieldset>
             <label htmlFor="title">Title</label>
             <input 
@@ -45,7 +44,6 @@ const NewRoutineForm = props => {
             onChange={handleChange}
             />
            
-
             <label htmlFor="name">Description</label>
             <input 
             id="name" 
@@ -55,7 +53,11 @@ const NewRoutineForm = props => {
             onChange={handleChange}
             />
             
-            <button onClick={handleClick} className="pure-button pure-button-primary">Next</button>
+            <button 
+            onClick={handleClick} 
+            className="pure-button pure-button-primary">
+                Next
+            </button>
         </fieldset>
    )
 }

@@ -8,26 +8,24 @@ const InteractiveFormContainer = () => {
     
     const [toggle, setToggle] = useState({
         isActive: true,
-        id: 'routine'
+        section: 'routine'
     })
 
     
 
     const handleClick = e => {
-        
-        console.log(e.target)
-         let ul = document.getElementsByClassName(e.target.parentElement.className)
+        let ul = document.getElementsByClassName(e.target.parentElement.className)
         
         // li.classList.remove("is-active")
         // setToggle({...toggle, isActive: !toggle.isActive })
-        setToggle({...toggle, id: e.target.id})
+        setToggle({...toggle, section: e.target.id})
 
         for (let i = 0; i < ul.length; ++i){
 
             if(ul[i].className === 'is-active'){
                 ul[i].classList.remove('is-active')
             }
-            else  if(ul[i].id === toggle.id){
+            else  if(ul[i].id === toggle.section){
                 ul[i].classList.add('is-active')
             }
 
@@ -35,7 +33,7 @@ const InteractiveFormContainer = () => {
 
     }
 
-    const  {isActive, id } = toggle
+    const  {isActive, section } = toggle
     
     return(
         <>
@@ -49,7 +47,7 @@ const InteractiveFormContainer = () => {
                     </ul>
 
                     <form className="form-wrapper">
-                        <InteractiveForm toggle={id} />
+                        <InteractiveForm toggle={section} />
                     </form>
                 </div>
             </div>
