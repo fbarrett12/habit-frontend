@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import '../stylesheets/Orb.css'
 import Orb from '../components/Orb'
-import { useSelector } from 'react-redux'
 import { FaPlus } from 'react-icons/fa'
 import NewRoutineForm from '../forms/NewRoutineForm'
 import TaskForm from '../forms/TaskForm'

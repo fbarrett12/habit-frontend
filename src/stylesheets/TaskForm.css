@@ -91,6 +91,7 @@
     margin: 20px;
     color: #ccc;
     padding-bottom: 5px;
+    cursor: pointer;
   }
   
   .steps li.is-active{

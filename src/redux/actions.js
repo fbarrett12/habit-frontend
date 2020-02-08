@@ -22,9 +22,14 @@ const clearUserAction = () => ({
   type: 'CLEAR_USER'
 })
 
-const selectRoutineAction = routine => ({
-  type: 'SELECT_ROUTINE',
-  payload: routine
+const setTask = task => ({
+  type: 'SET_TASK',
+  payload: task
+})
+
+const setUserTasks = taskList => ({
+  type: 'SET_USER_TASK',
+  payload: taskList
 })
 
 const clearRoutine = () => ({
@@ -113,6 +118,21 @@ const newUserToDB = (userObj, url) => dispatch => {
       })
   }
 
+  const newTasklistToDB = (taskObj, url) => dispatch => {
+    const config = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(taskObj)
+    }
+    fetch(url, config)
+      .then(r => r.json())
+      .then(data => {
+        dispatch(setUserTasks(data))
+      })
+  }
+
   export default {
     newUserToDB,
     deleteUserFromDB,
@@ -120,6 +140,8 @@ const newUserToDB = (userObj, url) => dispatch => {
     persistUser,
     logoutUser,
     newRoutineToDB,
+    setTask,
+    clearRoutine,
     setRoutineAction,
-    clearRoutine
+    newTasklistToDB
   }

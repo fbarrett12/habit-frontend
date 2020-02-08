@@ -6,6 +6,7 @@ import '../stylesheets/TaskForm.css'
 const NewRoutineForm = props => {
     console.log(props)
     const intActiveClick = () => props.button
+    
     // initialize dispatch 
     const dispatch = useDispatch()
 
@@ -56,7 +57,7 @@ const NewRoutineForm = props => {
             <button 
             onClick={handleClick} 
             className="pure-button pure-button-primary">
-                Next
+                Save
             </button>
         </fieldset>
    )

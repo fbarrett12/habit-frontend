@@ -1,7 +1,8 @@
 let defaultState = {
     user: {},
     routine: {},
-    selectedRoutine: {}
+    taskList: [],
+    userTasks: []
 }
 
 export default function reducer(state = defaultState, action){
@@ -24,10 +25,16 @@ export default function reducer(state = defaultState, action){
                 routine: action.payload 
             }
 
-        case 'SELECT_ROUTINE':
+        case 'SET_TASK':
             return {
                 ...state,
-                selectedRoutine: action.payload
+                taskList: [...state.taskList, action.payload]
+            }
+        
+        case 'SET_USER_TASK':
+            return {
+                ...state,
+                userTasks: [...state.userTasks, action.payload]
             }
             
             case 'CLEAR_ROUTINE':

@@ -4,6 +4,7 @@ import userActions from '../redux/actions'
 import '../stylesheets/TaskForm.css'
 import NewRoutineForm from '../forms/NewRoutineForm'
 import TaskForm from '../forms/TaskForm'
+import ReviewForm from '../forms/ReviewForm'
 
 const InteractiveForm = props => {
     
@@ -38,10 +39,7 @@ const InteractiveForm = props => {
         }
         else if(active === "review"){
             return( 
-                 <button 
-                     className="pure-button pure-button-primary">
-                         Next
-                 </button>
+                <ReviewForm />
             )
          } 
         else {
